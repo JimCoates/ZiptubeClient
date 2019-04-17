@@ -12,6 +12,11 @@ import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFor
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarComponent } from './navbar/navbar.component';
 import{ MDBBootstrapModule } from 'angular-bootstrap-md';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  {path: 'video-upload', component: VideoUploadComponent}
+]
 
 
 @NgModule({
@@ -33,7 +38,8 @@ import{ MDBBootstrapModule } from 'angular-bootstrap-md';
     MatFormFieldModule, 
     MatInputModule,
     FlexLayoutModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    RouterModule
   ],
   providers: [VideoService],
   bootstrap: [AppComponent]
