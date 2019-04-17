@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+     VideoAPI_Key: 'https://javalamps-ziptube.herokuapp.com/videos',
+     // VideoAPI_URL: 'https://javalamps-ziptube.herokuapp.com/videos'
+  VideoAPI_URL : 'http://localhost:8080/videos'
 };
 
 /*
