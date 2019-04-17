@@ -8,18 +8,32 @@ import {VideoService} from './shared/video.service';
 import { HttpModule} from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { VideoUploadComponent } from './video-upload/video-upload.component';
+import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NavbarComponent } from './navbar/navbar.component';
+import{ MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     VideosComponent,
-    VideoUploadComponent
+    VideoUploadComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule, 
+    MatCardModule, 
+    MatIconModule, 
+    MatToolbarModule, 
+    MatButtonModule, 
+    MatFormFieldModule, 
+    MatInputModule,
+    FlexLayoutModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [VideoService],
   bootstrap: [AppComponent]
