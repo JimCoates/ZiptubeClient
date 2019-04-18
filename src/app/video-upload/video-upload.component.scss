@@ -1,0 +1,53 @@
+input{
+
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  width: 230px;
+  background: #f1f1f1;
+
+}
+
+
+.btn-bwm {
+  //background-color: #4CAF50; /* Green */
+
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.video-upload-container {
+
+  cursor: pointer;
+  display: block;
+
+  label, input {
+    color: #444;
+    display: block;
+  }
+}
+
+.video-upload-label {
+  text-align: left;
+}
+
+app-video-upload {
+  display: inline-block;
+}
+
+.video-preview-container {
+  background-color: #f7f7f7;
+  position: relative;
+
+  video-preview {
+    background: center center no-repeat;
+    background-size: contain;
+    height: 116px;
+    width: 116px;
+  }
+}

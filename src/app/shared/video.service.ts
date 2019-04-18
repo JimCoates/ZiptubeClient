@@ -1,6 +1,6 @@
 import { Injectable} from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Http, Headers} from '@angular/http';
+import {Http, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs';
 
 
@@ -32,5 +32,36 @@ export class VideoService {
   this.selectedFile = event.target.files[0] as File;
   }
 
+  public uploadVideo(video: string): Observable<Video> {
+    const formData = new FormData();
+    formData.append('video', video);
+    return this.httpVar.post(this.URL, formData);
+  }
+  //
+  // submitVidoe(video: Video) {
+  //   const body = JSON.stringify(video);
+  //   const headers = new Headers({'Content-Type': 'apllication/json'});
+  //   const options = new RequestOptions({headers});
+  //
+  //   console.log(body.toString());
+  //
+  //   return this.httpVar
+  //     .post((this.URL, body, options))
+  // }
+  //
+  /*
+  // register(user: User) {
+  //   let body = JSON.stringify(user);
+  //   let headers = new Headers({ "Content-Type": "application/json" });
+  //   let options = new RequestOptions({ headers: headers });
+  //
+  //   console.log(body.toString());
+  //
+  //   return this.http
+  //     .post(this.userUrl, body, options)
+  //     .map(this.extractData)
+  //     .catch(this.handleError);
+  // }
+   */
 
-}
+  }

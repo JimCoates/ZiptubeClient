@@ -1,4 +1,47 @@
-<input type = "file"
+<!--<div class="video-upload-container">-->
+<!--<label class = "video-upload-label btn btn-bwm">-->
+<!--&lt;!&ndash;<span>Select Video</span>&ndash;&gt;-->
+<!--</label>-->
+<!--<input #videoInput-->
+       <!--type = "file"-->
+       <!--value = "Select video"-->
 
-      accept="video/*"
-       (change)="processFile()">
+       <!--accept="video/*"-->
+       <!--(change)="processFile(videoInput)">-->
+
+
+
+<!--<div  class="video-preview-container">-->
+  <!--<div class="video-preview"-->
+    <!--[ngStyle]="{'background-video': 'url('+ selectedVideo.src+')'}">-->
+  <!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+
+<!--<input class="upload" [(ngModel)]="uploadQuery" name="upload" placeholder="Upload Videos" value="" ngDefaultControl>-->
+
+<!--<button (click)="uploadVideo()"></button>-->
+<form name="myForm" (ngSubmit)="register()" method="post" ng-controller="builtinValidationCtrl as $ctrl"
+      ng-submit="$ctrl.submit()">
+
+<input
+type = "file"
+value = "Select video"
+
+accept="video/*"
+(change)="uploadVideo()"
+name = "upload Video">
+<br>
+<br>
+<div *ngFor="let video of videos" class=video-container>
+
+  <video width="600" height="300"  controls>
+    <source src={{video.url}}  type={{video.format}}>
+  </video>
+
+</div>
+
+  <div>
+    <button type="submit"  class="btn btn-default" >Upload</button>
+  </div>
