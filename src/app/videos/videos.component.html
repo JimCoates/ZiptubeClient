@@ -1,9 +1,12 @@
+
 <input class="search" [(ngModel)]="searchQuery" name="search" placeholder="Search for Videos" value="" ngDefaultControl>
 
 <button (click)="searchVideo()" type="button">Find Videos</button>
 
 <br>
 <br>
+
+
 <div *ngFor="let video of videos" class=video-container>
 
   <video width="600" height="300"  controls>
@@ -13,5 +16,6 @@
   <p> Title:{{video.title}}</p>
   <p> Date:{{video.date}}</p>
 
+  
 
 </div>
