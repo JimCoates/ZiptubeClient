@@ -1,21 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-button{
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper{
+  position: absolute;
+  top: 13%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.container{
+  position: relative;
+  padding: 20px 50px;
+}
+
+.input{
+  width: 800px;
+  border: 3px solid rgb(30, 167, 126);
+  background: transparent;
+  padding: 15px 30px;
+  border-radius: 50px;
+  outline: none;
+  font-size: 18px;
+  color: rgb(44, 62, 80);
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgb(44, 62, 80);
+  font-family: Roboto;
+  text-transform: uppercase;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: rgb(44, 62, 80);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: rgb(44, 62, 80);
+}
+
+.close-btn{
+  position: absolute;
+  top: 21px;
+  right: 50px;
   cursor: pointer;
+  color: white;
+  background: rgb(30, 167, 126);
+  border: 0px;
+  width: 120px;
+  height: 60px;
+  border-radius: 50px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
-input{
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  background: #f1f1f1;
-
-}
  p{
    margin-bottom: 8px;
    font-size: 1.4rem;

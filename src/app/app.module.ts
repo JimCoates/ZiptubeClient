@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { appRouting } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VideosComponent } from './videos/videos.component';
 import {VideoService} from './shared/video.service';
@@ -12,11 +12,8 @@ import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFor
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarComponent } from './navbar/navbar.component';
 import{ MDBBootstrapModule } from 'angular-bootstrap-md';
-import { RouterModule, Routes } from '@angular/router';
-
-const appRoutes: Routes = [
-  {path: 'video-upload', component: VideoUploadComponent}
-]
+import { HomeComponent } from './home/home.component';
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 
 @NgModule({
@@ -24,11 +21,12 @@ const appRoutes: Routes = [
     AppComponent,
     VideosComponent,
     VideoUploadComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    appRouting,
     HttpModule,
     FormsModule, 
     MatCardModule, 
@@ -39,7 +37,8 @@ const appRoutes: Routes = [
     MatInputModule,
     FlexLayoutModule,
     MDBBootstrapModule.forRoot(),
-    RouterModule
+    InfiniteScrollModule
+   
   ],
   providers: [VideoService],
   bootstrap: [AppComponent]
