@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {VideoService} from '../shared/video.service';
+import {FileUploader} from 'ng2-file-upload';
+import {environment} from '../../environments/environment';
+
 
 // class videoSnippet {
 //   constructor(public src: string, public file: File) {}
@@ -10,57 +13,40 @@ import {VideoService} from '../shared/video.service';
   templateUrl: './video-upload.component.html',
   styleUrls: ['./video-upload.component.scss']
 })
-// export class VideoUploadComponent  {
-//
-//   selectedVideo: videoSnippet;
-//   constructor(private videoService: VideoService) {
-//
-//   }
-//   processFile(videoInput: any) {
-//     debugger;
-//     const file: File = videoInput.files[0];
-//     const fileReader = new FileReader();
-//     fileReader.addEventListener('load', (event: any) => {
-//       debugger;
-//       this.selectedVideo = new videoSnippet(event.target.result, file);
-//     });
-//     this.videoService.uploadVideo(this.selectedVideo.file).subscribe(
-//       (res) => {
-//         debugger;
-//       },
-//       (err) => {
-//         debugger;
-//       });
-//   }
-//
-//     fileReader.readAsDataURL(file);
-//   }
-
 
 export class VideoUploadComponent implements OnInit {
+
+  constructor(private videoService: VideoService) { }
 
   videos: any[];
   imagesFound = false;
   uploadQuery = '';
+  selectedFile: string;
+  title: string;
+  private API_URL: string = environment.VideoAPI_URL;
+  private URL: string = 'server/videos/' + this.title;
+  public uploader: FileUploader = new FileUploader({url: this.URL});
+  public hasBaseDropZoneOver = false;
+  public hasAnotherDropZoneOver = false;
+  @ViewChild('fileInput') fileInputVariable: any;
 
   handleSuccess(data) {
     this.imagesFound = true;
     this.videos = data.json();
     console.table(this.videos);
   }
-
-  constructor(private videoService: VideoService) { }
-
   uploadVideo() {
-    console.log(this.uploadQuery);
-    return this.videoService.uploadVideo(this.uploadQuery)
-      .subscribe(data => {
-      this.handleSuccess(data);
-    });
-    }
-
-  ngOnInit() {
+    const files = this.fileInputVariable.nativeElement.files;
+    this.videoService.uploadVideo(files[0]);
   }
+  public fileOverBase(e: any): void {
+    this.hasBaseDropZoneOver = e;
+  }
+
+  public fileOverAnother(e: any): void {
+    this.hasAnotherDropZoneOver = e;
+  }
+ngOnInit() {}
   }
 
 

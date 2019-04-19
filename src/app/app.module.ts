@@ -13,6 +13,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarComponent } from './navbar/navbar.component';
 import{ MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RouterModule, Routes } from '@angular/router';
+import {FileSelectDirective} from 'ng2-file-upload';
 
 const appRoutes: Routes = [
   {path: 'video-upload', component: VideoUploadComponent}
@@ -24,18 +25,19 @@ const appRoutes: Routes = [
     AppComponent,
     VideosComponent,
     VideoUploadComponent,
-    NavbarComponent
+    NavbarComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule, 
-    MatCardModule, 
-    MatIconModule, 
-    MatToolbarModule, 
-    MatButtonModule, 
-    MatFormFieldModule, 
+    FormsModule,
+    MatCardModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
     MatInputModule,
     FlexLayoutModule,
     MDBBootstrapModule.forRoot(),
