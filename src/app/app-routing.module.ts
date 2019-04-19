@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { VideoUploadComponent } from './video-upload/video-upload.component';
+import { RouterModule } from '@angular/router';
+import { VideosComponent } from './videos/videos.component';
 
-const routes: Routes = [];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+const appRoutes = [
+  {path: '', component: VideosComponent},
+  {path: 'upload', component: VideoUploadComponent}
+];
+export const appRouting = RouterModule.forRoot(appRoutes);

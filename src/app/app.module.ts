@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { appRouting } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VideosComponent } from './videos/videos.component';
 import {VideoService} from './shared/video.service';
@@ -11,13 +11,18 @@ import { VideoUploadComponent } from './video-upload/video-upload.component';
 import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarComponent } from './navbar/navbar.component';
-import{ MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 import { RouterModule, Routes } from '@angular/router';
 import {FileSelectDirective} from 'ng2-file-upload';
 
 const appRoutes: Routes = [
   {path: 'video-upload', component: VideoUploadComponent}
 ]
+
+import { HomeComponent } from './home/home.component';
+
+
 
 
 @NgModule({
@@ -26,11 +31,13 @@ const appRoutes: Routes = [
     VideosComponent,
     VideoUploadComponent,
     NavbarComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    HomeComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    appRouting,
     HttpModule,
     FormsModule,
     MatCardModule,
@@ -41,7 +48,6 @@ const appRoutes: Routes = [
     MatInputModule,
     FlexLayoutModule,
     MDBBootstrapModule.forRoot(),
-    RouterModule
   ],
   providers: [VideoService],
   bootstrap: [AppComponent]
