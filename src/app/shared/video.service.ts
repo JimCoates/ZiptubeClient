@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs';
 import {any} from 'codelyzer/util/function';
+import { ActivatedRoute } from '@angular/router';
 
 
 class Video {
@@ -35,6 +36,16 @@ export class VideoService {
   onFileSelected(event) {
   this.selectedFile = event.target.files[0] as File;
   }
+
+  getIndividualVideo(id:Number): Observable<Video> {
+    return this.httpVar.get(this.URL + "/" + id);
+  }
+
+  getIndividualVideoComments(id:Number): Observable<Video> {
+    return this.httpVar.get(this.URL + "/" + id + "/" + "comments");
+  }
+
+  
 
   // public uploadVideo(video: string): Observable<Video> {
   //   const formData = new FormData();

@@ -29,9 +29,17 @@ export class VideosComponent implements OnInit {
       });
   }
 
+  loadAllVidoes() {
+    console.log(this.searchQuery);
+    return this.videoService.getVideo(this.searchQuery)
+      .subscribe(data => {
+        this.handleSuccess(data);
+      });
+  }
 
 
   ngOnInit() {
+    this.loadAllVidoes();
   }
 
 }
