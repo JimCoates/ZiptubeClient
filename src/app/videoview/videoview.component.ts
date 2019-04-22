@@ -33,19 +33,5 @@ export class VideoviewComponent implements OnInit {
     return this.videoService.getIndividualVideo(route).subscribe(video => this.handleSuccess(video) );
 
 
+  }
 }
-
-
-// constructor(private postId: ActivatedRoute, private blogApiService: BlogApiService) { }
-
-//  ngOnInit() {
-//    this.getPost(this.postId);
-//    this.getTags(this.postId);
-//  }
-
-//  getTags(postId) {
-//    this.blogApiService.getPostTags(postId.params.value.id).subscribe(
-//      data => { this.tags = data; },
-//      err => console.log(err),
-//    );
- }

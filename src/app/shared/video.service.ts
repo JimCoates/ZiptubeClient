@@ -41,9 +41,6 @@ export class VideoService {
     return this.httpVar.get(this.URL + "/" + id);
   }
 
-  getIndividualVideoComments(id:Number): Observable<Video> {
-    return this.httpVar.get(this.URL + "/" + id + "/" + "comments");
-  }
 
   
 
