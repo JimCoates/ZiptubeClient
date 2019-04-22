@@ -32,7 +32,6 @@ export class VideoService {
   }
 
   public getVideo(query): Observable<Video> {
-    this.commentService.add('VideoService: fetched videos');
     return this.httpVar.get(this.URL);
   }
 

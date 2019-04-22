@@ -21,7 +21,6 @@ import { VideoviewComponent } from './videoview/videoview.component';
 import { CommentsService} from './shared/comments.service';
 import { CommentsComponent } from './comments/comments.component'
 
-import { CommentsComponent } from './comments/comments.component';
 
 
 
