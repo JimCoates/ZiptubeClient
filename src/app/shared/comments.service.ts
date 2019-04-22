@@ -3,7 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { VideoService } from './video.service';
 import { Observable } from 'rxjs';
-import { Comments } from '../comment';
+import { Comments } from '../comments';
 
 
 @Injectable({

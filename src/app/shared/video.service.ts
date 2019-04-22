@@ -7,6 +7,7 @@ import {any} from 'codelyzer/util/function';
 import { ActivatedRoute } from '@angular/router';
 
 import { CommentService } from './comment.service';
+import { Comments } from '../comments';
 
 
 class Video {
@@ -16,12 +17,12 @@ class Video {
 export class VideoService {
   headers: Headers;
   video: Video;
+  comment: Comments
   private query: string;
   private API_URL: string = environment.VideoAPI_URL;
   private URL: string = this.API_URL;
   private httpVar: Http;
   private selectedFile: File = null;
-  private commentService: any;
 
 
 
@@ -43,6 +44,11 @@ export class VideoService {
   getIndividualVideo(id:Number): Observable<Video> {
     return this.httpVar.get(this.URL + "/" + id);
   }
+
+  getIndividualVideoComment(id:Number): Observable<any> {
+    return this.httpVar.get(this.URL + "/" + id + "/" + "comments");
+  }
+
 
 
 
