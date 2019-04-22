@@ -12,16 +12,17 @@ import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFor
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
-import { RouterModule, Routes } from '@angular/router';
 import {FileSelectDirective} from 'ng2-file-upload';
 
-const appRoutes: Routes = [
-  {path: 'video-upload', component: VideoUploadComponent}
-]
-
+import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+
+import { VideoviewComponent } from './videoview/videoview.component';
+import { CommentsService} from './shared/comments.service';
+import { CommentsComponent } from './comments/comments.component'
+
 import { CommentsComponent } from './comments/comments.component';
+
 
 
 
@@ -35,7 +36,13 @@ import { CommentsComponent } from './comments/comments.component';
     NavbarComponent,
     FileSelectDirective,
     HomeComponent,
+
+    VideoviewComponent,
+    CommentsComponent,
+  
+
     CommentsComponent
+
 
   ],
   imports: [
@@ -51,8 +58,9 @@ import { CommentsComponent } from './comments/comments.component';
     MatInputModule,
     FlexLayoutModule,
     MDBBootstrapModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [VideoService],
+  providers: [VideoService, CommentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

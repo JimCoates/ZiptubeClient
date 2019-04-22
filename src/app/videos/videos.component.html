@@ -2,23 +2,35 @@
 <div class="wrapper">
     <div class="container">
       <input type="text" class="input" placeholder="Search Videos">
-      <input type="button" value="search" class="close-btn">
+      <button (click)="searchVideo()" type="button" class="close-btn">Find Videos</button>
     </div>
   </div>
 
 <br>
 <br>
+<br>
+<br>
 
 
-<div *ngFor="let video of videos" class=video-container>
-
-  <video width="600" height="300"  controls>
+<!-- <div *ngFor="let video of videos" class=video-container>
+  <p> Title:{{video.title}}</p>
+  <video width="400" height="300"  controls>
     <source src={{video.url}}  type={{video.format}}>
   </video>
   <p> Description:{{video.description}}</p>
-  <p> Title:{{video.title}}</p>
   <p> Date:{{video.date}}</p>
 
-  
+</div> -->
 
-</div>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <mat-card class="card-picture" *ngFor="let video of videos">
+      <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+        <span fxFlex="80%">Title {{video.title}}</span>
+      </mat-card-title>
+    <video [routerLink]="['/videoview/', video.id]"  width="400" height="300">
+      <source src={{video.url}} type={{video.format}}>
+      </video>
+    <p> Description:{{video.description}}</p>
+    <p> Date:{{video.date}}</p>
+    </mat-card>
+  </div>
