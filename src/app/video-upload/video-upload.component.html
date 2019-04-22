@@ -1,25 +1,24 @@
+<input type ="text" [(ngModel)]="title" (input)="addTitle()" placeholder="Title">
+<br>
+
+<!--<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveEdit()">Save</button>-->
 <form name="myForm" (ngSubmit)="upload()" method="post" ng-controller="builtinValidationCtrl as $ctrl"
       ng-submit="$ctrl.submit()">
+  <!--<input type="text" name="Description">-->
 
+   <br>
+    <!--<input type="text" [(ngModel)]="addTitle().description"-->
+           <!--class="form-control" id="description" description="description" placeholder="Enter description"-->
+           <!--required #description="ngModel">-->
 
-  <input [(ngModel)]="title" [ngModelOptions]="{standalone: true}">
+    <!--<input type="text" (input)="addDescription($event)" placeholder="Enter description" class="form-control">-->
+  <input type="text" (input)="addTitle()" [(ngModel)]="description" name = "description" placeholder="Enter description" class="form-control">
+
   <input type="file" ng2FileSelect [uploader]="uploader" />
 
   <div class="col-md-9" style="margin-bottom: 40px">
 
-    <h3>Upload queue</h3>
-    <p>Queue length: {{ uploader?.queue?.length }}</p>
-
     <table class="table">
-      <thead>
-      <tr>
-        <th width="50%">Name</th>
-        <th>Size</th>
-        <th>Progress</th>
-        <th>Status</th>
-        <th>Actions</th>
-      </tr>
-      </thead>
       <tbody>
       <tr *ngFor="let item of uploader.queue">
         <td><strong>{{ item?.file?.name }}</strong></td>
@@ -39,14 +38,7 @@
                   (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
             <span class="glyphicon glyphicon-upload"></span> Upload
           </button>
-          <button type="button" class="btn btn-warning btn-xs"
-                  (click)="item.cancel()" [disabled]="!item.isUploading">
-            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
-          </button>
-          <button type="button" class="btn btn-danger btn-xs"
-                  (click)="item.remove()">
-            <span class="glyphicon glyphicon-trash"></span> Remove
-          </button>
+
         </td>
       </tr>
       </tbody>

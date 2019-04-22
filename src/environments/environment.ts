@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // VideoAPI_URL: 'https://javalamps-ziptube.herokuapp.com/videos'
-  VideoAPI_URL : 'server/videos'
+  VideoAPI_URL : 'server/videos/'
+
 };
 
 /*

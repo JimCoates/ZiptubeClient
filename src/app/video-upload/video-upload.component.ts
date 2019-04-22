@@ -1,12 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {VideoService} from '../shared/video.service';
-import {FileUploader} from 'ng2-file-upload';
-import {environment} from '../../environments/environment';
-
-
-// class videoSnippet {
-//   constructor(public src: string, public file: File) {}
-// }
+ import {Component, Input, OnInit, Output, ViewChild} from '@angular/core';
+ import {VideoService} from '../shared/video.service';
+ import {FileUploader} from 'ng2-file-upload';
+ import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-video-upload',
@@ -15,39 +10,30 @@ import {environment} from '../../environments/environment';
 })
 
 export class VideoUploadComponent implements OnInit {
+  private myform: any;
 
   constructor(private videoService: VideoService) { }
 
   videos: any[];
-  imagesFound = false;
-  uploadQuery = '';
-  selectedFile: string;
   title: string;
+  description: string;
+
   private API_URL: string = environment.VideoAPI_URL;
-  private URL: string = 'server/videos/' + this.title;
-  public uploader: FileUploader = new FileUploader({url: this.URL});
-  public hasBaseDropZoneOver = false;
-  public hasAnotherDropZoneOver = false;
+  private URL: string;
+  public uploader: FileUploader = new FileUploader({});
   @ViewChild('fileInput') fileInputVariable: any;
 
-  handleSuccess(data) {
-    this.imagesFound = true;
-    this.videos = data.json();
-    console.table(this.videos);
+   form = new FormData();
+ngOnInit() {}
+
+  addTitle() {
+    this.uploader = new FileUploader({url: 'server/videos/' + this.title + ', ' + this.description});
   }
-  uploadVideo() {
-    const files = this.fileInputVariable.nativeElement.files;
-    this.videoService.uploadVideo(files[0]);
-  }
-  public fileOverBase(e: any): void {
-    this.hasBaseDropZoneOver = e;
   }
 
-  public fileOverAnother(e: any): void {
-    this.hasAnotherDropZoneOver = e;
-  }
-ngOnInit() {}
-  }
+
+
+
 
 
 

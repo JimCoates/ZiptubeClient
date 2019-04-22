@@ -21,6 +21,8 @@ const appRoutes: Routes = [
 ]
 
 import { HomeComponent } from './home/home.component';
+import { CommentsComponent } from './comments/comments.component';
+
 
 
 
@@ -32,7 +34,8 @@ import { HomeComponent } from './home/home.component';
     VideoUploadComponent,
     NavbarComponent,
     FileSelectDirective,
-    HomeComponent
+    HomeComponent,
+    CommentsComponent
 
   ],
   imports: [
