@@ -4,10 +4,17 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'comments',
+
+import {CommentService} from '../shared/comment.service';
+
+@Component({
+  selector: 'app-comments',
+
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit {
+
   comment: any[];
   id: Number;
 
@@ -22,4 +29,12 @@ export class CommentsComponent implements OnInit {
     return this.commentService.getIndividualVideoComments(route).subscribe(result => this.comment = result as any[]);
     }
   }
+
+
+  constructor(public commentService: CommentService) { }
+
+  ngOnInit() {
+  }
+
+}
 
