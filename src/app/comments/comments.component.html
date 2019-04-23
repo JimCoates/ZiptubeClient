@@ -6,6 +6,7 @@
   <mat-form-field class="search-form">
     <input matInput placeholder="Comment" type="text" name = 'body' #bodyInput>
   </mat-form-field>
+  <br>
   <button button="Button" (click)= 'postComment(bodyInput.value, nameInput.value)' mat-raised-button>Comment</button>
 </div>
 
