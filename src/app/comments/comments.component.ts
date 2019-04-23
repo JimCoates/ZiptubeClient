@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CommentsService } from '../shared/comments.service';
 import { ActivatedRoute } from '@angular/router';
 import { VideoService } from '../shared/video.service';
+import {FileUploader} from 'ng2-file-upload';
 
 @Component({
   selector: 'comments',
@@ -30,8 +30,8 @@ export class CommentsComponent implements OnInit {
       this.comments = data.json();
       console.table(this.comments);
     }
-  
-  
+
+
     loadAllComments(route) {
       return this.videoService.getIndividualVideoComment(route)
         .subscribe(data => {

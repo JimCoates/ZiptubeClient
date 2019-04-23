@@ -1,4 +1,4 @@
-import { Injectable} from '@angular/core';
+import {Injectable, Output} from '@angular/core';
 import { environment } from '../../environments/environment';
 import {Http, Headers} from '@angular/http';
 import { Observable } from 'rxjs';
@@ -25,7 +25,6 @@ export class VideoService {
   private selectedFile: File = null;
 
 
-
   constructor(httpVar: Http, commentService: CommentService) {
     this.httpVar = httpVar;
     this.headers = new Headers();
@@ -37,16 +36,17 @@ export class VideoService {
   }
 
 
+
   onFileSelected(event) {
   this.selectedFile = event.target.files[0] as File;
   }
 
   getIndividualVideo(id:Number): Observable<Video> {
-    return this.httpVar.get(this.URL + "/" + id);
+    return this.httpVar.get(this.URL + '/' + id);
   }
 
   getIndividualVideoComment(id:Number): Observable<any> {
-    return this.httpVar.get(this.URL + "/" + id + "/" + "comments");
+    return this.httpVar.get(this.URL + '/' + id + '/' + 'comments');
   }
 
 
