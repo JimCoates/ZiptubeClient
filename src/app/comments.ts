@@ -1,9 +1,13 @@
 export class Comments{
-
-    id: Number;
     body: String;
     posterName: String;
     postDate: Date;
-    video: any;
+    video: Number;
 
+    constructor(body:String, posterName:String, postDate:Date, video: any){
+        this.body = body;
+        this.posterName = posterName;
+        this.postDate = postDate;
+        this.video = video;
+    }
 }
