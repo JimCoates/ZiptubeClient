@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommentsService } from '../shared/comments.service';
 import { ActivatedRoute } from '@angular/router';
 import { VideoService } from '../shared/video.service';
+import { Comments } from '../comments'
 
 @Component({
   selector: 'comments',
@@ -13,6 +14,8 @@ export class CommentsComponent implements OnInit {
   comments: any[];
   imagesFound = false;
   id: Number;
+  comment: Comments;
+  video : any;
 
   constructor(private videoService: VideoService, private route: ActivatedRoute) { }
 
@@ -37,6 +40,12 @@ export class CommentsComponent implements OnInit {
         .subscribe(data => {
           this.handleSuccess(data);
         });
+    }
+
+    postComment(){
+      let video = this.videoService.getIndividualVideo(this.id).subscribe(data => this.video)
+      this.comment.video = video;
+      return this.videoService.postComment(this.comment).subscribe();
     }
   }
 

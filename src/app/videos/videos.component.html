@@ -6,23 +6,8 @@
     </div>
   </div>
 
-<br>
-<br>
-<br>
-<br>
 
-
-<!-- <div *ngFor="let video of videos" class=video-container>
-  <p> Title:{{video.title}}</p>
-  <video width="400" height="300"  controls>
-    <source src={{video.url}}  type={{video.format}}>
-  </video>
-  <p> Description:{{video.description}}</p>
-  <p> Date:{{video.date}}</p>
-
-</div> -->
-
-<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+<div class = "videos" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap.xs="10px" fxLayoutAlign fxLayoutGap="15px">
     <mat-card class="card-picture" *ngFor="let video of videos">
       <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
         <span fxFlex="80%">Title {{video.title}}</span>
@@ -30,7 +15,5 @@
     <video [routerLink]="['/videoview/', video.id]"  width="400" height="300">
       <source src={{video.url}} type={{video.format}}>
       </video>
-    <p> Description:{{video.description}}</p>
-    <p> Date:{{video.date}}</p>
     </mat-card>
   </div>

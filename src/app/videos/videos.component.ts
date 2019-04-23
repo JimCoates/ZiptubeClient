@@ -12,7 +12,7 @@ export class VideosComponent implements OnInit {
   videos: any[];
   imagesFound = false;
   searchQuery = '';
-
+  regularDistribution = 100/3;
 
   handleSuccess(data) {
     this.imagesFound = true;

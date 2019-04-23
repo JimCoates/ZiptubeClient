@@ -1,20 +1,18 @@
 <div *ngIf='video'>
   <section>
           <figure>
-              <h1> Title:{{video.title}}</h1>
             <video width="800" height="600"  controls>
               <source src={{video.url}}  type={{video.format}} controls>
             </video>
             <figcaption>
-                Description:{{video.description}}
+                <h1> {{video.title}} </h1>
+                <p>{{video.description}}</p>
             </figcaption>
-
             <div>
                 <comments></comments>
               </div>
           </figure>
   </section>
-
 </div>
 
 

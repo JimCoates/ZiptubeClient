@@ -1,9 +1,36 @@
 
 <div>
-  
-    <li *ngFor="let comment of comments">
-      Comments:
-      {{comment.body}}
+<mat-form-field class="search-form" (ngSubmit)=postComment() >
+    <input matInput placeholder="Name" type="text" [(ngModel)]="comments.posterName" name = 'posterName'>
+  </mat-form-field>
+  <mat-form-field class="search-form" (ngSubmit)=postComment()>
+    <input matInput placeholder="Comment" type="text" [(ngModel)]="comments.body" name = 'body'>
+  </mat-form-field>
+  <button button="Button" mat-raised-button>Comment</button>
+</div>
+
+<div class="comments-container">
+  <h1>Comments</h1>
+
+  <ul id="comments-list" class="comments-list">
+    <li *ngFor = "let comment of comments">
+      <div class="comment-main-level">
+        <!-- Picture -->
+        <div class="comment-avatar"><img src="assets/Images/user.png" alt=""></div>
+        <!-- Comment boxes -->
+        <div class="comment-box">
+          <div class="comment-head">
+            <h6 class="comment-name by-author"><a>{{comment.posterName}}</a></h6>
+            <span>{{comment.postDate}}</span>
+          </div>
+          <div class="comment-content">
+            {{comment.body}}
+          </div>
+        </div>
+      </div>
     </li>
+  </ul>
+</div>
+
 
 

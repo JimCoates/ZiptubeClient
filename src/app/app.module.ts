@@ -16,7 +16,7 @@ import {FileSelectDirective} from 'ng2-file-upload';
 
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { VideoviewComponent } from './videoview/videoview.component';
 import { CommentsService} from './shared/comments.service';
 import { CommentsComponent } from './comments/comments.component'
@@ -57,7 +57,8 @@ import { CommentsComponent } from './comments/comments.component'
     MatInputModule,
     FlexLayoutModule,
     MDBBootstrapModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [VideoService, CommentsService],
   bootstrap: [AppComponent]
