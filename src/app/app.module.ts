@@ -38,8 +38,6 @@ import { CommentsComponent } from './comments/comments.component'
 
     VideoviewComponent,
     CommentsComponent,
-  
-
     CommentsComponent
 
 
