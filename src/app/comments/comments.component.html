@@ -1,12 +1,12 @@
 
 <div>
-<mat-form-field class="search-form" (ngSubmit)=postComment() >
-    <input matInput placeholder="Name" type="text" [(ngModel)]="comments.posterName" name = 'posterName'>
+<mat-form-field class="search-form">
+    <input matInput placeholder="Name" type="text" name = 'posterName' #nameInput>
   </mat-form-field>
-  <mat-form-field class="search-form" (ngSubmit)=postComment()>
-    <input matInput placeholder="Comment" type="text" [(ngModel)]="comments.body" name = 'body'>
+  <mat-form-field class="search-form">
+    <input matInput placeholder="Comment" type="text" name = 'body' #bodyInput>
   </mat-form-field>
-  <button button="Button" mat-raised-button>Comment</button>
+  <button button="Button" (click)= 'postComment(bodyInput.value, nameInput.value)' mat-raised-button>Comment</button>
 </div>
 
 <div class="comments-container">

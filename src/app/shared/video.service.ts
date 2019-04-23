@@ -50,17 +50,7 @@ export class VideoService {
   getIndividualVideoComment(id:Number): Observable<any> {
     return this.httpVar.get(this.URL + '/' + id + '/' + 'comments');
   }
-
-  postComment(comment:Comments){
-    return this.httpVar.post(this.commentURL, comment);
-  }
-
-
-
-
-
-
-  }
+}
 
 
 
