@@ -3,7 +3,7 @@
   
 }
 Button {
-background-color: rgb(44, 62, 80)
+background-color: rgb(24, 188, 156)
 }
 
 .form-group.is-focused {
@@ -64,9 +64,8 @@ body {
 	position: relative;
 }
 
-/**
- * Lineas / Detalles
- -----------------------*/
+//Details
+
 .comments-list:before {
 	content: '';
 	width: 2px;
