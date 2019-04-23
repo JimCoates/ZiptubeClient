@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import {any} from 'codelyzer/util/function';
 import { ActivatedRoute } from '@angular/router';
 
-import { CommentService } from './comment.service';
 import { Comments } from '../comments';
 
 
@@ -23,9 +22,12 @@ export class VideoService {
   private URL: string = this.API_URL;
   private httpVar: Http;
   private selectedFile: File = null;
+  private commentURL: string = environment.CommentAPI_URL;
 
 
-  constructor(httpVar: Http, commentService: CommentService) {
+
+
+  constructor(httpVar: Http) {
     this.httpVar = httpVar;
     this.headers = new Headers();
     this.headers.set('Content-Type', 'multipart/form-data');
@@ -47,6 +49,10 @@ export class VideoService {
 
   getIndividualVideoComment(id:Number): Observable<any> {
     return this.httpVar.get(this.URL + '/' + id + '/' + 'comments');
+  }
+
+  postComment(comment:Comments){
+    return this.httpVar.post(this.commentURL, comment);
   }
 
 

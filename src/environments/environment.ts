@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  VideoAPI_URL : 'server/videos/'
+  VideoAPI_URL : 'server/videos/',
+  CommentAPI_URL : 'server/comments'
 
 };
 
