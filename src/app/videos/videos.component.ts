@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {VideoService} from '../shared/video.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -13,21 +14,29 @@ export class VideosComponent implements OnInit {
   imagesFound = false;
   searchQuery = '';
   regularDistribution = 100/3;
+  video: any;
 
   handleSuccess(data) {
     this.imagesFound = true;
     this.videos = data.json();
     console.table(this.videos);
   }
-  constructor(private videoService: VideoService) { }
+  constructor(private videoService: VideoService, private route: ActivatedRoute) { }
 
-  searchVideo() {
-    console.log(this.searchQuery);
-    return this.videoService.getVideo(this.searchQuery)
-      .subscribe(data => {
-        this.handleSuccess(data);
-      });
+  searchVideo(input: String) {
+    console.log(input);
+    let id: Number;
+    for(let video of this.videos){
+      if(video.title == input){
+        id=video.id;
+        location.href = 'videoview/' + id;
+      } else {
+        this.loadAllVidoes();
+      }
+    }
   }
+    
+  
 
   loadAllVidoes() {
     console.log(this.searchQuery);

@@ -1,8 +1,8 @@
 
 <div class="wrapper">
     <div class="container">
-      <input type="text" class="input" placeholder="Search Videos">
-      <button (click)="searchVideo()" type="button" class="close-btn">Find Videos</button>
+      <input type="text" class="input" placeholder="Search Videos" #searchinput>
+      <button (click)="searchVideo(searchinput.value)" type="button" class="close-btn">Find Videos</button>
     </div>
   </div>
 

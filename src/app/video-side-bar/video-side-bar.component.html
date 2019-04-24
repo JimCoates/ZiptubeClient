@@ -1,10 +1,10 @@
 <div class = "videos" fxLayout="column" fxLayout.xs="column" fxLayoutGap.xs="10px" fxLayoutAlign fxLayoutGap="15px">
-    <mat-card class="card-picture" *ngFor="let video of videos">
+    <mat-card class="card-picture" *ngFor="let video of videos" onClick = location.reload()>
       <mat-card-title class = "title" >
         <div fxFlex="80%">{{video.title}}</div>
       </mat-card-title>
     <video [routerLink]="['/videoview/', video.id]"  width="200" height="150">
-      <source src={{video.url}} type={{video.format}}>
+      <source src={{video.url}} type={{video.format}}> 
       </video>
     </mat-card>
   </div>

@@ -23,6 +23,7 @@ export class VideoService {
   private httpVar: Http;
   private selectedFile: File = null;
   private commentURL: string = environment.CommentAPI_URL;
+  private videoViewUrl: string = environment.VideoViewURL;
 
 
 
@@ -45,6 +46,10 @@ export class VideoService {
 
   getIndividualVideo(id:Number): Observable<Video> {
     return this.httpVar.get(this.URL + '/' + id);
+  }
+
+  searchIndividualVideo(id:Number): Observable<Video> {
+    window.location.href = this.videoViewUrl +'/' + id;
   }
 
   getIndividualVideoComment(id:Number): Observable<any> {

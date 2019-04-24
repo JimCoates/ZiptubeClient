@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {VideoService} from '../shared/video.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'videosidebar',
@@ -20,7 +20,7 @@ export class VideoSideBarComponent implements OnInit {
     this.videos = data.json();
     console.table(this.videos);
   }
-  constructor(private videoService: VideoService, private router: Router) { }
+  constructor(private videoService: VideoService, private router: Router, private currRoute: ActivatedRoute) { }
 
   searchVideo() {
     console.log(this.searchQuery);
@@ -44,7 +44,13 @@ export class VideoSideBarComponent implements OnInit {
   }
 
   route(id: Number) {
-    this.router.navigateByUrl('/videoview/' + id);
+    this.router.navigateByUrl('videoview/' + id);
+    
+  }
+
+  reloadPage(id: Number){
+    this.route(id);
+    location.reload();
   }
 
 }
