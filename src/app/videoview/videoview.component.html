@@ -1,7 +1,7 @@
 <div *ngIf='video'>
   <section>
           <figure>
-            <video width="1000" height="800"  controls>
+            <video width="900" height="780"  controls>
               <source src={{video.url}}  type={{video.format}} controls>
             </video>
             <figcaption>
@@ -10,9 +10,10 @@
             </figcaption>
             <div>
                 <comments></comments>
-              </div>
+            </div>
           </figure>
   </section>
+  <videosidebar></videosidebar>
 </div>
 
 

@@ -19,7 +19,9 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { VideoviewComponent } from './videoview/videoview.component';
 import { CommentsService} from './shared/comments.service';
-import { CommentsComponent } from './comments/comments.component'
+import { CommentsComponent } from './comments/comments.component';
+import { VideoSideBarComponent } from './video-side-bar/video-side-bar.component'
+
 
 
 
@@ -38,7 +40,8 @@ import { CommentsComponent } from './comments/comments.component'
 
     VideoviewComponent,
     CommentsComponent,
-    CommentsComponent
+    CommentsComponent,
+    VideoSideBarComponent
 
 
   ],
@@ -56,7 +59,8 @@ import { CommentsComponent } from './comments/comments.component'
     FlexLayoutModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
   ],
   providers: [VideoService, CommentsService],
   bootstrap: [AppComponent]
