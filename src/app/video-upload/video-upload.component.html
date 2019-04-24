@@ -1,17 +1,12 @@
 <input type ="text" [(ngModel)]="title" (input)="addTitle()" placeholder="Title">
 <br>
 
-<!--<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveEdit()">Save</button>-->
 <form name="myForm" (ngSubmit)="upload()" method="post" ng-controller="builtinValidationCtrl as $ctrl"
       ng-submit="$ctrl.submit()">
-  <!--<input type="text" name="Description">-->
+  
 
    <br>
-    <!--<input type="text" [(ngModel)]="addTitle().description"-->
-           <!--class="form-control" id="description" description="description" placeholder="Enter description"-->
-           <!--required #description="ngModel">-->
-
-    <!--<input type="text" (input)="addDescription($event)" placeholder="Enter description" class="form-control">-->
+ 
   <input type="text" (input)="addTitle()" [(ngModel)]="description" name = "description" placeholder="Enter description" class="form-control">
 
   <input type="file" ng2FileSelect [uploader]="uploader" />

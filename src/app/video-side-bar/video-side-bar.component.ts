@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {VideoService} from '../shared/video.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'videosidebar',
@@ -12,6 +12,7 @@ export class VideoSideBarComponent implements OnInit {
   videos: any[];
   imagesFound = false;
   searchQuery = '';
+  
 
 
   handleSuccess(data) {
@@ -19,7 +20,7 @@ export class VideoSideBarComponent implements OnInit {
     this.videos = data.json();
     console.table(this.videos);
   }
-  constructor(private videoService: VideoService) { }
+  constructor(private videoService: VideoService, private router: Router) { }
 
   searchVideo() {
     console.log(this.searchQuery);
@@ -40,6 +41,10 @@ export class VideoSideBarComponent implements OnInit {
 
   ngOnInit() {
     this.loadAllVidoes();
+  }
+
+  route(id: Number) {
+    this.router.navigateByUrl('/videoview/' + id);
   }
 
 }
