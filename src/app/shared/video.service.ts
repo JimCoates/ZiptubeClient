@@ -49,7 +49,7 @@ export class VideoService {
   }
 
   searchIndividualVideo(id:Number): Observable<Video> {
-    window.location.href = this.videoViewUrl +'/' + id;
+    return this.httpVar.get(this.videoViewUrl + '/' + id);
   }
 
   getIndividualVideoComment(id:Number): Observable<any> {
